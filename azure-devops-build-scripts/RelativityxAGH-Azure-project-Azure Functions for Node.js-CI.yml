@@ -1,0 +1,51 @@
+trigger:
+  branches:
+    include:
+    - refs/heads/main
+jobs:
+- job: Job_1
+  displayName: Build Azure funcions
+  pool:
+    vmImage: ubuntu-latest
+  steps:
+  - checkout: self
+    fetchDepth: 1
+  - task: Bash@3
+    displayName: Build extensions
+    inputs:
+      targetType: inline
+      script: >-
+        if [ -f extensions.csproj ]
+
+        then
+            dotnet build extensions.csproj --output ./bin
+        fi
+      workingDirectory: crud-api-functions/
+  - task: NodeTool@0
+    displayName: Use Node version 10.14.1
+    inputs:
+      versionSpec: 10.14.1
+  - task: Npm@1
+    displayName: Install Application Dependencies
+    inputs:
+      workingDir: $(System.DefaultWorkingDirectory)/crud-api-functions/
+      verbose: false
+  - task: Npm@1
+    displayName: Run 'build' script
+    inputs:
+      command: custom
+      workingDir: $(System.DefaultWorkingDirectory)/crud-api-functions/
+      verbose: false
+      customCommand: run build --if-present
+  - task: ArchiveFiles@2
+    displayName: Archive files
+    inputs:
+      rootFolderOrFile: $(System.DefaultWorkingDirectory)/crud-api-functions/
+      includeRootFolder: false
+      archiveFile: $(Build.ArtifactStagingDirectory)/azure-func/build.zip
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact: azure-func-artifct'
+    inputs:
+      PathtoPublish: $(Build.ArtifactStagingDirectory)/azure-func/
+      ArtifactName: azure-func-artifct
+...

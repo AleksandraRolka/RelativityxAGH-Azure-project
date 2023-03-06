@@ -1,0 +1,16 @@
+.form-input {
+  margin-top: 8px;
+}
+
+.ant-btn-primary {
+  background-color: rgb(95, 187, 10);
+  border-color: rgb(95, 187, 10);
+  font-weight: 500;
+}
+
+.ant-btn-primary:hover {
+  background-color: rgb(95, 187, 10) !important;
+  border-color: rgb(95, 187, 10) !important;
+  font-weight: 500;
+  opacity: 0.78;
+}

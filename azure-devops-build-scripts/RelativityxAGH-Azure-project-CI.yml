@@ -1,0 +1,35 @@
+trigger:
+  branches:
+    include:
+    - refs/heads/main
+jobs:
+- job: Job_1
+  displayName: Build app
+  timeoutInMinutes: 100
+  pool:
+    vmImage: ubuntu-latest
+  steps:
+  - checkout: self
+    fetchDepth: 1
+  - task: Npm@1
+    displayName: npm install
+    inputs:
+      workingDir: vocabulary-boost-up-app
+      verbose: false
+  - task: Npm@1
+    displayName: npm build
+    inputs:
+      command: custom
+      workingDir: vocabulary-boost-up-app
+      verbose: false
+      customCommand: run build
+  - task: ArchiveFiles@2
+    displayName: Archive vocabulary-boost-up-app/build
+    inputs:
+      rootFolderOrFile: vocabulary-boost-up-app/build
+      archiveFile: $(Build.ArtifactStagingDirectory)/build.zip
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact: build-artifact'
+    inputs:
+      ArtifactName: build-artifact
+...

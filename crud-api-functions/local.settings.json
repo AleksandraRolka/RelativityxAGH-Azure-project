@@ -1,0 +1,22 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_EXTENSION_VERSION": "~4",
+    "ScmType": "None",
+    "SCM_DO_BUILD_DURING_DEPLOYMENT": "True",
+    "WEBSITE_AUTH_ENABLED": "False",
+    "REMOTEDEBUGGINGVERSION": "16.0.32106.67",
+    "FUNCTIONS_RUNTIME_SCALE_MONITORING_ENABLED": "0",
+    "APPLICATIONINSIGHTS_CONNECTION_STRING": "InstrumentationKey=93ca7283-dd76-4c3a-ba28-89f5e46577e9;IngestionEndpoint=https://eastus-8.in.applicationinsights.azure.com/;LiveEndpoint=https://eastus.livediagnostics.monitor.azure.com/",
+    "APPINSIGHTS_INSTRUMENTATIONKEY": "93ca7283-dd76-4c3a-ba28-89f5e46577e9",
+    "WEBSITE_NODE_DEFAULT_VERSION": "16.16.0",
+    "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "DefaultEndpointsProtocol=https;AccountName=termuniprojectresou86f4;AccountKey=NKScBest2/1S2Mujpldx9Hh5AxDEMkKpeU2Dk/wGErkKL8e8zsrVD5QN6p+BpPOQZ2OpaiZGcMD9+AStF0c3kQ==;EndpointSuffix=core.windows.net",
+    "WEBSITE_CONTENTSHARE": "crud-api-functions-v280dc",
+    "DB_CONNECTION_CONFIG": "host=c.term-project-db.postgres.database.azure.com port=5432 dbname=citus user=citus password=pass123! ssl=true",
+    "WEBSITE_AUTH_AUTO_AAD": "False",
+    "WEBSITE_SITE_NAME": "crud-api-functions-v2",
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=termuniprojectresou86f4;AccountKey=NKScBest2/1S2Mujpldx9Hh5AxDEMkKpeU2Dk/wGErkKL8e8zsrVD5QN6p+BpPOQZ2OpaiZGcMD9+AStF0c3kQ==;EndpointSuffix=core.windows.net",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "WEBSITE_AUTH_LOGOUT_PATH": "/.auth/logout"
+  }
+}
